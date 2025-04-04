@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-singlefruit',
@@ -20,4 +20,9 @@ export class SinglefruitComponent {
       { name: 'Arne P.', text: 'nicht so meins' },
     ],
   };
+
+  @Output() fruitname = new EventEmitter<string>();
+  emitName() {
+    this.fruitname.emit(this.fruit.name);
+  }
 }
